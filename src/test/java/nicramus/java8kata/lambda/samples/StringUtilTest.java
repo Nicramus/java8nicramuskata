@@ -29,6 +29,7 @@ public class StringUtilTest {
     public void surnameName() { //first surname, second name - test two arguemts in stream
         NameSurname mother = new NameSurname("Lisa", "Hamilton");
         NameSurname father = new NameSurname("Edward", "Norton");
+        
         NameSurname brother = new NameSurname("Simon", "Pegg");
         List<NameSurname> collection = asList(mother, father, brother);
         List<String> expected = asList("HamiltonLisa", "NortonEdward", "PeggSimon");

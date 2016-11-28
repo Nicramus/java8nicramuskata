@@ -4,6 +4,7 @@ import nicramus.java8kata.lambda.nicramus.java8kata.util.Utility;
 import nicramus.java8kata.lambda.pojos.NameSurname;
 
 import java.util.List;
+import java.util.function.Function;
 import static java.util.stream.Collectors.toList;
 
 /**
@@ -22,8 +23,12 @@ public class StringUtil {
                 .collect(toList());
     }
 
-    public static List<NameSurname> convertToSurnameName(List<NameSurname> collection) {
+    public static List<String> convertToSurnameName(List<NameSurname> collection) {
+        Function<String, String> ddd = Utility::stringPlus;
+        Function<String, String> A2 = String::toLowerCase;
+        
         return collection.stream()
+                .map(a -> a.surname + a.name)
                 //.map(Utility::stringPlus)
                 .collect(toList());
     }
