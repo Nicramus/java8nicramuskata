@@ -1,9 +1,11 @@
 package nicramus.java8kata.lambda.samples;
 
 import static java.util.Arrays.asList;
+import static org.junit.Assert.assertEquals;
+
 import java.util.List;
 import nicramus.java8kata.lambda.pojos.Person;
-import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 /**
@@ -16,12 +18,20 @@ public class PeopleStatsSpecTest {
     Person eva = new Person("Eva", 42);
     List<Person> collection = asList(sara, eva, viktor);
     Stats stats = new Stats(collection);
-   
-    
+
+    private static final double DELTA = 1e-15;
+
     @Test
     public void getStatsShouldReturnAverageAge() {
-        int average = 4 + 40 + 42 /3;
-        assertEquals(average, stats.getAverage());
+        double average = (4 + 40 + 42) / 3d;
+        assertEquals(average, stats.getAverage(), DELTA);
     }
+
+    @Test
+    public void getStatsShouldReturnMaximumRange() {
+        assertEquals(42, stats.getMax());
+    }
+
+
 
 }
