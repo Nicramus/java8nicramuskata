@@ -28,9 +28,16 @@ public class PeopleStatsSpecTest {
     }
 
     @Test
+    public void getStatsShouldReturnNumberOfPeople() {
+        assertEquals(3, stats.getCount());
+    }
+
+    @Test
     public void getStatsShouldReturnMaximumRange() {
         assertEquals(42, stats.getMax());
     }
+
+
 
 
 

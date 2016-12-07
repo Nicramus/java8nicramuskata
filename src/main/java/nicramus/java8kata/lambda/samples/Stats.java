@@ -35,4 +35,8 @@ public class Stats {
                 .max(Comparator.comparing(Person::getAge)).get().getAge();
 
     }
+
+    public long getCount() {
+        return collection.stream().count();
+    }
 }
